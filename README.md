@@ -41,6 +41,7 @@
 
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
+     This project gather posts from the soccer community on X(formerly Twitter). The trained classifier sorts those post into one of four labels: `match_reaction`, `player_performance`, `tactical_analysis`, or `fan_banter` that describe what the text of the post is about. The classifier also produces a confidence score, representing how sure it was about a label classification it made.
 
 
 
@@ -113,19 +114,21 @@
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:** 
+**Where the posts came from:** X (Twitter) soccer forum
 
 **How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
 Say so plainly — the disclosure is required, not penalised. -->
+I cold labelled the first 24 and then pre-labelled with AI and corrected the remaining 126 posts
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| match_reaction | 40 | 26.7% |
+| player_performance | 33 | 22% |
+| tactical_analysis | 53 | 35.3% |
+| fan_banter| 24  | 16% |
+| **Total** | 150 | 100% |
 
 **Three hard cases**
 
@@ -133,25 +136,25 @@ Say so plainly — the disclosure is required, not penalised. -->
      been, and what you chose. These are worth more than the easy 190. -->
 
 **1.**
-> *The post:*
+> *The post:* One could argue that Arsenal secured an important victory at a difficult venue, but the reality is that they made life difficult for themselves at the City Ground by dominating possession with a very conservative approach and a very slow tempo, lacking the courage to play inside Forest’s defensive block and in front of their back line.
 >
-> *Could have been:*
+> *Could have been:* tactical_analysis or match_recation
 >
-> *I chose, because:*
+> *I chose, because:* tactical_analysis it's a post match reaction but focuses on the explanation of why Arsenal's approach made the match more difficult.
 
 **2.**
-> *The post:*
+> *The post:* Sevilla threw this game away. Who using midblock for Real Madrid? They allowed Madrid start their attacking phase from the middle, entirely letting them cruise past the first phase. Now you are two goals down you want to press them in their box & you’ve always had this ability. So why didn’t you just start this way?
 >
-> *Could have been:*
+> *Could have been:* tactical_analysis or match_reaction
 >
-> *I chose, because:*
+> *I chose, because:* match_reaction because while it captures some tactical analysis, the post is mainly a reaction to what is happening in the match
 
 **3.**
-> *The post:*
+> *The post:* Caicedo is the reason we're not leaking goals or struggling in the midfield anymore. We are unbeaten in every game he's played for us this season. The BEST defensive midfielder in the league.
 >
-> *Could have been:*
+> *Could have been:* player_performance or match_reaction
 >
-> *I chose, because:*
+> *I chose, because:* player_performance because it shows two areas the player has managed to improve the team which indirectly states his performance is improving the team's overall performance
 
 ---
 
@@ -159,13 +162,29 @@ Say so plainly — the disclosure is required, not penalised. -->
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** distilbert-base-uncased
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Settings:** <!-- epochs, learning rate, batch size, seed --> EPOCHS = 3
+LEARNING_RATE = 2e-5
+BATCH_SIZE = 16
+SEED = 42
 
-**Anything I changed from the defaults, and why:**
+**Anything I changed from the defaults, and why:** None, I was short on time and wanted to get my work submitted so I coudn't fine-tune like I would have wanted to.
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
+**Split sizes:** train 104  ·  val 23  ·  test 23
+
+                    train  val  test
+label                               
+match_reaction         28    6     6
+tactical_analysis      37    8     8
+player_performance     23    5     5
+fan_banter             16    4     4
+
+[note] 'match_reaction' has only 6 examples in the test split.
+[note] 'player_performance' has only 5 examples in the test split.
+[note] 'fan_banter' has only 4 examples in the test split.
+
+<!-- train / val / test, and per-label counts in the test
 split. If a label had fewer than about 8 in test, say so — it explains a lot
 of next unit's variance. -->
 
@@ -184,15 +203,15 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I asked Claude to evaluate my criteria 
+- *What came back:* It produced more concise criterion
+- *What I changed:* I tweaked the language and numbers to maintain what I would still understand
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I used Claude to verify the formatting of my `labels.csv` file as I was getting errors in my notebook
+- *What came back:* a clear breakdown of all the formatting issues and where exactly they were
+- *What I changed:* corrected all the errors
 
 **Pre-labelling disclosure:**
 
