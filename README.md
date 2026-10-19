@@ -54,34 +54,56 @@
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `match_reaction`
 
-**Definition:**
-
-**Example 1:**
->
-
-**Example 2:**
->
-
-### `label_two`
-
-**Definition:**
+**Definition:** An in-the-moment or immediate emotional response to events in a specific match, such as a goal, a result, or a scoreline.
 
 **Example 1:**
->
+> First win at Everton in 4 years 🤯🔵
 
 **Example 2:**
->
+> FT: Chelsea 6-2 Spurs The proverbial 'game of two halves' as the Blues smash the Lilywhites. A brace apiece from Lauren James & Ellie Carpenter, a howitzer from Sjoeke Nüsken and a stunner from Maika Hamano against her former loan club send the Blues (at least temporarily) top.
+
+
+### `tactical_analysis`
+
+**Definition:** A post that analyzes how a team plays/played and explains how or why something happened using shape, formation, pressing, build-up, or other structural football concepts.
+
+**Example 1:**
+> Credit Carrick. His system has led to the goal. Overload in midfield and Tielemans isn't tracked as he becomes free. There's a weakness on the Man United left defensive side. Far too many crosses coming in as Bruno/Mbeumo stay narrow and Dalot is isolated.
+
+**Example 2:**
+> Steve Cooper made some great points about pressure on the ball from a low block. Low block - passive pressure, you’re in trouble.
+
+
+### `player performance`
+
+**Definition:** A post that evaluates a specific player’s output, such as form, stats, or a rating, with the player as the main subject.
+
+**Example 1:**
+>🔥🇦🇷 Lionel Messi counts 23 G/A in the last 14 games with Inter Miami. Two more tonight.
+
+**Example 2:**
+>Yan Diomandé adds a golazo to his assist in Real Madrid's 4-1 win over Sevilla. Another superstar performance. Baller 💎
+
+### `fan_banter`
+
+**Definition:** A post whose main purpose is joking, teasing, trash-talking, or memeing about other fans, clubs, or fanbases rather than analyzing or evaluating football.
+
+**Example 1:**
+> Some of the goals that Mbappé scores… if it was a certain Barcelona forward, they demand the Ballon d’Or the next day.
+
+**Example 2:**
+> DIOMANDE HAS ARRIVED, GIVE ME BARCELONA NOW!
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `match_reaction` vs `fan_banter`
 
-**The decision rule I used every time:**
+**The decision rule I used every time:** Ask who the post is aimed at. If it’s addressed to or mocking another fanbase or club, label it fan_banter. If it’s expressing your own feelings about what happened, label it match_reaction. This example is aimed at rival fans, so it’s fan_banter.
+
 <!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
      if the tone is heated." -->
-
 
 
 ---
@@ -91,7 +113,7 @@
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:**
+**Where the posts came from:** 
 
 **How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
 Say so plainly — the disclosure is required, not penalised. -->
