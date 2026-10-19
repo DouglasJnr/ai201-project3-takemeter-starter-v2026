@@ -118,7 +118,7 @@
 
 **How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
 Say so plainly — the disclosure is required, not penalised. -->
-I cold labelled the first 24 and then pre-labelled with AI and corrected the remaining 126 posts
+I cold labelled the first 24 and then pre-labelled with AI and corrected the remaining 126 posts. I ultimately gathered 150 posts instead of 200 due to time constraints manually gathering the posts.
 
 **Counts per label:**
 
