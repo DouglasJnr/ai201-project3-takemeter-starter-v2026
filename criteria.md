@@ -51,61 +51,61 @@ whether you hit them:
 
 ---
 
-## 1.
+## 1.The classifier will achieve at least 70% accuracy for each of the three required random seeds.
 
 <!-- Your criterion. It must name a number. -->
 
 
 
-**Why this target:**
+**Why this target:** With four labels, random guessing would be about 25% accurate. A 70% target requires the model to distinguish meaningful differences between match reactions, tactical analysis, player performance, and fan banter rather than relying only on common words.
 
 
 
 ---
 
-## 2.
+## 2. Every label will achieve an F1 score of at least 0.60.
 
 <!-- Your criterion. -->
 
 
 
-**Why this target:**
+**Why this target:** The labels have overlapping language, especially match_reaction and fan_banter, so overall accuracy could hide poor performance on one category. Each label should be useful on its own, while allowing some variation because smaller labels will have less stable scores.
 
 
 
 ---
 
-## 3.
+## 3. The largest label will contain no more than 2.5 times as many examples as the smallest label in the manually labeled dataset.
 
 <!-- Your criterion. -->
 
 
 
-**Why this target:**
+**Why this target:** A heavily overrepresented label could make the classifier appear accurate while underperforming on less common categories such as `tactical_analysis` or `fan_banter`
 
 
 
 ---
 
-## 4.
+## 4. On a shared sample of at least 40 posts independently labeled by another person, the classifier should agree with them at least 65% of the time
 
 <!-- Your criterion. -->
 
 
 
-**Why this target:**
+**Why this target:** Some posts could fit more than one label, especially match_reaction and fan_banter. A 65% agreement rate would show that the classifier usually makes similar decisions to another human.
 
 
 
 ---
 
-## 5.
+## 5. Predictions assigned a confidence of at least 0.80 will be correct at least 85% of the time
 
 <!-- Your criterion. -->
 
 
 
-**Why this target:**
+**Why this target:** High-confidence predictions should be dependable enough to use with minimal manual review. This is particularly important for posts that contain both emotional language and football analysis, where the model should avoid presenting an uncertain classification as reliable.
 
 
 
