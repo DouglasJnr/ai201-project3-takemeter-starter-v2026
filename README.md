@@ -229,16 +229,19 @@ of next unit's variance. -->
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.348 | 0.391 | +0.043 |
+| Macro F1 | 0.264 | 0.205 | -0.059 |
+| F1 — `fan_banter` | 0.000 | 0.000 | +0.000 |
+| F1 — `match_reaction` | 0.400 | 0.286 | -0.114 |
+| F1 — `player_performance` | 0.435 | 0.000 | -0.435 |
+| F1 — `tactical_analysis` | 0.222 | 0.533 | +0.311 |
 
-**What I predicted before I looked:**
+
+**What I predicted before I looked:** The trained model will have a higher macro F1 socre than the baseline model.
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
 
-**What the gap actually means:**
+**What the gap actually means:** The baseline model matched the trained model, the trained model had a slightly better overall accuracy, but lower macro F1 score.
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
 

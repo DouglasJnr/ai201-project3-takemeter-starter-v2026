@@ -5,6 +5,7 @@
 #
 # Delete the examples below and put yours in.
 
-analysis: makes an argument backed by a specific, checkable fact
-hot_take: a confident claim with no support offered
-reaction: an immediate response to something that just happened
+match_reaction: An in-the-moment or immediate emotional response to events in a specific match, such as a goal, a result, or a scoreline.
+tactical_analysis: analyzes how a team plays/played and explains how or why something happened using shape, formation, pressing, build-up, or other structural football concepts.
+player performance: evaluates a specific player’s output, such as form, stats, or a rating, with the player as the main subject.
+fan_banter: main purpose is joking, teasing, trash-talking, or memeing about other fans, clubs, or fanbases rather than analyzing or evaluating football.

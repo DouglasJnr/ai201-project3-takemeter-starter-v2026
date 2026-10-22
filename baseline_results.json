@@ -1,0 +1,155 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 23,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": false,
+  "scores": {
+    "n": 23,
+    "accuracy": 0.34782608695652173,
+    "f1_macro": 0.2640575798470535,
+    "per_label": {
+      "fan_banter": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4
+      },
+      "match_reaction": {
+        "precision": 0.2857142857142857,
+        "recall": 0.3333333333333333,
+        "f1": 0.30769230769230765,
+        "support": 6
+      },
+      "player_performance": {
+        "precision": 0.35714285714285715,
+        "recall": 1.0,
+        "f1": 0.5263157894736842,
+        "support": 5
+      },
+      "tactical_analysis": {
+        "precision": 1.0,
+        "recall": 0.125,
+        "f1": 0.2222222222222222,
+        "support": 8
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "Arteta and his staff deserve a world of credit for this season's evolution. Not seen too many people talk about it but their in possession work has been amazing to watch. Wide overloads, horizontal runs, diagonal passes into the centre. I'll write an analysis soon.",
+      "gold": "tactical_analysis",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "Should I talk about how Raya killed about 4-6 attacks again by being brave off his line and having freakish hands again or are we all bored of me mentioning that",
+      "gold": "player_performance",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "Four seconds, a progressive pass, and absolutely no initiative to alter the structure through asymmetrical full-back movements into more advanced areas, in sync with the ball\u2019s progression. On several occasions on Saturday, I noticed that the wingers were left isolated, forced to take on two or three opposition players themselves, despite there being fairly good opportunities for the full-backs to make overlapping runs. This often left Liverpool numerically disadvantaged in key areas, allowing Brentford to defend comfortably by maintaining their numerical superiority. There was no tension created no attempt to draw defenders out of position and no expansion of our attacking options. This passive approach to full-back play needs to be eliminated as soon as possible, because it kills potentially dangerous attacking patterns #LFC",
+      "gold": "tactical_analysis",
+      "predicted": "match_reaction"
+    },
+    {
+      "text": "We got lucky today. Our defenders have won us a Premier League. We cannot keep relying on them. Zero shots on target at 75 min isnt good enough and Arteta knows that. Our attack needs to fix up and fast.",
+      "gold": "match_reaction",
+      "predicted": "match_reaction"
+    },
+    {
+      "text": "This is just ridiculous isn\u2019t it #nufc",
+      "gold": "match_reaction",
+      "predicted": "fan_banter"
+    },
+    {
+      "text": "Brighton have scored the 5th goal. They are rampant.",
+      "gold": "match_reaction",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "Arsenal with their wide rotations & combinations and the players around the defenders pushing them deeper toward the goal is able to create that space just in front of the backline for the midfielders to come late from behind. It can be the solution to unlock Nottingham Forest.",
+      "gold": "tactical_analysis",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "Quick thoughts on the game. The 3\u20134-3 is such a hard formation to play against. It causes chaos where teams want control. Expect the top teams to start shifting their formation against Man United and Palace.",
+      "gold": "tactical_analysis",
+      "predicted": "match_reaction"
+    },
+    {
+      "text": "Tears bro they aren\u2019t even the best \u201cReal\u201d or \u201cMadrid\u201d in the league no more",
+      "gold": "fan_banter",
+      "predicted": "match_reaction"
+    },
+    {
+      "text": "Yan Diomand\u00e9 adds a golazo to his assist in Real Madrid's 4-1 win over Sevilla. Another superstar performance. Baller \ud83d\udc8e",
+      "gold": "player_performance",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "Yamal has 24 goals and assists in 15 games for club and country this term. He's on track to be directly involved in 59 League goals if he continues at this ridiculous rate. I've been quite vocal on the fact that I don't think he's deserving of the 2026 Ballon D'Or due to injuries and an indifferent World Cup...But he's certainly the frontrunner for the 2027 edition at this early stage. He's been ridiculous",
+      "gold": "player_performance",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "\ud83d\udea8\ud83c\uddea\ud83c\uddf8 ARDA GULER OPENS THE SCORING FOR REAL MADRID! WHAT A FANTASTIC GOAL! \ud83e\udd2f Real Madrid 1-0 Sevilla.",
+      "gold": "match_reaction",
+      "predicted": "match_reaction"
+    },
+    {
+      "text": "Manchester City referee, Micheal Oliver tried to cost Arsenal three points yesterday. I have never seen a thing like this being allowed and I probably won't ever see a thing as such being allowed again, unless it is against Arsenal.",
+      "gold": "fan_banter",
+      "predicted": "match_reaction"
+    },
+    {
+      "text": "Espart didn't have the greatest of games yesterday, won just 4/11 of his duels and not much on the ball to report. That's against the first challenging opponent, expecting him to hold his own against PSG is very optimistic. Meanwhile if Balde somehow plays and we lose...",
+      "gold": "player_performance",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "PSG\u2019s Brilliance \ud83e\udde0\u26bd\ufe0f \u2022 Fluid Rotations \u2022 Dembele\u2019s Overloads \u2022 Attacking Full-Backs Created using https://thetacticsapp.com",
+      "gold": "tactical_analysis",
+      "predicted": "tactical_analysis"
+    },
+    {
+      "text": "I feel like our squad with a 3-5-2 formation under Xabi Alonso willl cook",
+      "gold": "tactical_analysis",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "Henderson getting on to refs after decisions is something we\u2019ve massively missed.",
+      "gold": "match_reaction",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "When you think about it, it makes sense for City to be so locked in, bcos they\u2019re going to need it, people actually think City winning 7/7 means they\u2019re fighting for the league, but nope they\u2019re fighting for their survival, bcos when the record points deduction drops, these victories could be crucial to them finishing 17th or getting relegated",
+      "gold": "fan_banter",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "He should be sold to Wolves Idc. He had Rice working overtime just to come play fifa with Speed.",
+      "gold": "match_reaction",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "Xabi Alonso\u2019s Chelsea repeatedly tried to pin David Moyes\u2019s Everton press in the center/right, with one of the double pivot (Jordan Henderson and Mois\u00e9s Caicedo) dropping to create a back three.Creating big space for Levi Colwill to progress on the left side.",
+      "gold": "tactical_analysis",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "Haaland scores 9 out of every 10 times he can\u2019t touch tb during a game. The second you blink inside the box, he\u2019s finishing. If he can touch it, he becomes an overwhelmingly explosive 6\u20195\u201d Van Persie. And he puts his ego in service of the team when defending. He\u2019s the G.O.A.T #9.",
+      "gold": "player_performance",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "The shape from Manchester United is unusual. It has a magic square in midfield... a full on winger in Amad and a roaming auxilliary forward in Mbuemo. Throw in a right footed left back and a CB at right back, it is a very 'ugly' formation but the most important thing is that it seems to have maximised the personnel on the pitch. None of the players on the pitch you could say are being asked to fulfil a role that isn't suited to them at this moment in time. #mufc",
+      "gold": "tactical_analysis",
+      "predicted": "player_performance"
+    },
+    {
+      "text": "Please don\u2019t sack Carrrick before we play United \ud83d\ude06\ud83d\ude4f",
+      "gold": "fan_banter",
+      "predicted": "match_reaction"
+    }
+  ]
+}
