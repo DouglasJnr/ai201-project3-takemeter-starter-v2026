@@ -256,28 +256,30 @@ of next unit's variance. -->
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Achieve at least 70% accuracy for each of the three required random seeds. | ≥0.70 accuracy | 0.391 | 0.348 | 0.348 | MISSED |
+| 2. Every label will achieve an F1 score of at least 0.60 | ≥0.60 F1 for every label: match 0.286, tactical 0.533, player 0.000, banter 0.000 | match 0.286; tactical 0.533; player 0.000; banter 0.000 | match 0.000; tactical 0.516; player 0.000; banter 0.000 | match 0.000; tactical 0.533; player 0.000; banter 0.000 | MISSED |
+| 3. largest label contains <= 2.5 as many examples as the smallest label in the manually labeled dataset. | ≤2.5:1 | 2.21:1 | 2.21:1 | 2.21:1 | MET |
+| 4. shared sample of at least 40 posts independently labeled by another person, the classifier should agree with them at least 65% of the time  | ≥65% agreement on at least 40 posts | Not available | Not available | Not available | NOT TESTED |
+| 5. Predictions assigned a confidence of at least 0.80 will be correct at least 85% of the time | ≥85% accuracy for predictions with confidence ≥0.80 | Not available from section 6 | Not available from section 6 | Not available from section 6 | NOT TESTED |
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
-|---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| true \ predicted | match_reaction | tactical_analysis | player_performance | fan_banter |
+|---|---|---|---| --- |
+| **match_reaction** | 1 | 5 | 0 | 0 |
+| **tactical_analysis** | 0 | 8 | 0 | 0 |
+| **player_performance** | 0 | 5 | 0 | 0 |
+| **fan_banter**| 0 | 4 | 0 | 0 |
+
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
-
+ 5 real `match_reaction` posts were called `tactical_analysis`, but no real `tactical_analysis` posts were called `match_reaction`. The same is true for 5 real `player_performance` posts being called `tactical_analysis`. This is evidence of the model collapsing onto one class.
 
 
 ---
