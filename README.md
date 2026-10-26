@@ -262,6 +262,18 @@ of next unit's variance. -->
 
 **Pre-labelling disclosure:**
 
+**Moment 3**
+
+- *What I asked for:* I asked Claude to evaluate my decision rules that I added for labeling 
+- *What came back:* It produced more rigid rules for classifying posts without applying them loosely.
+- *What I changed:* I tweaked the rules slightly to maintain what I believe differentiates posts from each other especially on X where context is usually key.
+
+**Moment 1**
+
+- *What I asked for:* I asked Claude to help me brainstorm improvements to my model 
+- *What came back:* It produced varying levels of improvement methods
+- *What I changed:* I opted for the simplest improvement method due to restraints such as time, and opted to relabel and see if there would be any improvements.
+
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
      Don't fill these in during unit 5.
@@ -478,19 +490,32 @@ My improvement didn't help, it made the model slightly worse, and no criterion c
 <!-- If it didn't, say so. Relabelling that didn't help is a genuinely
      interesting result and earns full credit. -->
 
-
-
 ---
 
 ## What's Still Broken
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
-Criterion 1, 2, 
+### Criterion 1 - Accuracy >= 70%
+**What I'd do:** Change the training settings rather than the labels. I would raise `EPOCHS` and `LEARNING_RATE` then check that the training loss drops well below 1.386 (the loss of a model guessing blindly between four labels). My 83% agreement with the staff labels suggests my labelling is not the main problem, so the next fix should target the model.
+
+**Why I stopped:** I was short on time, and every three-seed run on my laptop took several minutes per seed. I chose to finish the write-up rather than start a hyperparameter search I couldn't complete properly.
+
+### Criterion 2 - Every label F1 >= 0.60
+**What I'd do:** Collect more posts for the thin labels, aiming for the 200 the brief asks for, with the extra posts going mostly to `fan_banter` and `match_reaction`. With only 4–6 test examples per label, one prediction changes a label's F1 a lot. I would also try class weights in the loss so the model is penalised more for always guessing `tactical_analysis`.
+
+**Why I stopped:** Gathering posts by hand from X was the slowest part of the project, which is why I stopped at 150. Class weights would mean changing the notebook's training code, which I didn't have time to do and test.
+
+### Criterion 5 - Most-confident third >= 85%
+**What I'd do:** Nothing directly. While the model predicts one label for every post, its confidence just reflects how "tactical-sounding" a post is, so this criterion can't be fixed on its own. Once criteria 1 and 2 improve, I would re-check it. A third of 23 test posts is only 7 predictions, so one error moves the score by 14 points.
+
+**Why I stopped:** It depends on fixing the model collapse first.
+
 
 
 **The gap between what I meant my labels to capture and what the model
 learned:**
 <!-- Two sentences. Your confusion matrix is the evidence. -->
+I meant my labels to capture the purpose of a post: reacting, evaluating a player, explaining tactics, or mocking rivals. The model learned none of those purposes and instead predicts `tactical_analysis` for every post, which the after confusion matrix shows.
 
 
 
