@@ -260,7 +260,7 @@ of next unit's variance. -->
 | 2. Every label will achieve an F1 score of at least 0.60 | ≥0.60 F1 for every label: match 0.286, tactical 0.533, player 0.000, banter 0.000 | match 0.286; tactical 0.533; player 0.000; banter 0.000 | match 0.000; tactical 0.516; player 0.000; banter 0.000 | match 0.000; tactical 0.533; player 0.000; banter 0.000 | MISSED |
 | 3. largest label contains <= 2.5 as many examples as the smallest label in the manually labeled dataset. | ≤2.5:1 | 2.21:1 | 2.21:1 | 2.21:1 | MET |
 | 4. shared sample of at least 40 posts independently labeled by another person, the classifier should agree with them at least 65% of the time  | ≥65% agreement on at least 40 posts | Not available | Not available | Not available | NOT TESTED |
-| 5. Predictions assigned a confidence of at least 0.80 will be correct at least 85% of the time | ≥85% accuracy for predictions with confidence ≥0.80 | Not available from section 6 | Not available from section 6 | Not available from section 6 | NOT TESTED |
+| 5. The most-confident third of predictions will be correct at least 85% of the time for each seed | ≥85% accuracy for the most-confident third | 0.714 | 1.000 | 0.714 | MISSED |
 
 ### Confusion matrix
 
@@ -291,13 +291,25 @@ of next unit's variance. -->
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Overall Accuracy | ≥0.70  | MISSED | Accuracy was 0.391, 0.348, and 0.348, so none of the seeds reached 0.70. |
+| 2 | Every label F1 | ≥0.60 | MISSED | `player_performance` and `fan_banter` had F1 = 0.000 for every seed; `match_reaction` reached only 0.286 once and `tactical_analysis` reached 0.533 at best. |
+| 3 | Largest label is no more than 2.5 times the smallest | Largest/smallest ≤2.5:1 | MET | The largest class had 53 posts and the smallest had 24, giving 53/24 = 2.21:1. |
+| 4 | Agreement on a shared sample of 30 posts | ≥ 0.65 | MET | Agreement was 25/30 = 83.3% |
+| 5 | The most-confident third of predictions is reliable | ≥85% accuracy for the most-confident third for each seed | MISSED | The most-confident third was correct 71.4% for seed 42, 100.0% for seed 7, and 71.4% for seed 2024; the target was not met for every seed. |
 
 **Diagnoses**
+
+### Criterion 1 - Accuracy >= 70%
+The task is too difficult for the current model and datsset size, with the model collapsing toward `tactical_analysis`. I know because the accuracy was 0.391, 0.348, and 0.348 across the three seeds. The confusion matrix shows that most `match_reaction`, `player_performance`, and `fan_banter` posts were predicted as `tactical_analysis`. The same low performance across all three seeds means this isn't primarily random split instability.
+
+### Criterion 2 - Every label F1 >= 0.60
+There are two related causes: insufficient examples for the weaker labels and difficult or incosistently applied label boundaries.
+`player_performance` and `fan_banter` had F1 = 0.00 for every seed. The test set contained only 5 `player_performance` examples and 4 `fan_banter` examples, so those label scores are based on very few examples. The model consistently collapsed onto the `technical_analysis` label.
+
+### Criterion 5 - The most-confident third of predictions will be correct at least 85% of the time for each seed
+The model's confidence is not reliable enough, which points to a calibration problem associated with the model's weak class separation rather than a test-set split problem.
+Section 6 reports accuracy for the most-confident third as 71.4% for seed 42, 100.0% for seed 7, and 71.4% for seed 2024. Because the target had to hold for every seed, the criterion was missed in two of the three runs. The model was still collapsing toward `tactical_analysis`, and the most-confident predictions were not consistently correct. The variation also shows that confidence is unstable on this small test set.
+
 
 <!-- For each miss: the cause, and how you know. The four common causes are:
      too few examples for a label, a boundary you applied inconsistently, a
@@ -320,7 +332,7 @@ of next unit's variance. -->
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** ___ / 30 = ___%
+**Agreement rate:** __25_ / 30 = _83__%
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -343,24 +355,55 @@ of next unit's variance. -->
      what you did across your own 200. -->
 
 **1.**
-> *The post:*
+> *The post:* "Carbon plates aren't the whole story. My times dropped 2% in the shoes and another 2% the following year in the same pair, when the only thing that changed was going from 35 to 50 miles a week."
 >
-> *Staff said / I said:*
+> *Staff said / I said:* analysis | hot_take
 >
-> *My call, and why:*
+> *My call, and why:* hot_take, because I incorrectly interpreted the post which lead me to apply the rule loosely even though it covered it
 >
-> *Which pile:*
+> *Which pile:* (a) the rule covered it and I applied it loosely
 
 **2.**
-> *The post:*
+> *The post:* "Ran the same loop in 4C and in 24C within a fortnight, same effort by heart rate. 90 seconds slower in the heat over six miles. People keep saying heat costs you 'a bit' and it's more than that."
 >
-> *Staff said / I said:*
+> *Staff said / I said:* analysis | reaction
 >
-> *My call, and why:*
+> *My call, and why:* reaction, I applied the rule loosely because I did not think the weather was used as the reason for a slower run, it was a post about the author's experience.
 >
-> *Which pile:*
+> *Which pile:* (a) the rule covered it and I applied it loosely
 
-**What the pattern in my disagreements tells me:**
+
+**3.**
+> *The post:* "Went back through the club results going back to 2012. Every single year the number of people who enter the spring marathon and don't start it sits between 18 and 23 percent. It's not a bad-luck year, it's the base rate."
+>
+> *Staff said / I said:* analysis | hot_take
+>
+> *My call, and why:* hot_take because I did not see this year's rate and so did not think I could truly classify this post as analysis if the numbers weren't fully supporting the claim.
+>
+> *Which pile:* (c) the rule is ambiguous here and my reading is defensible 
+
+
+**4.**
+> *The post:* "Three of us ran the same session on the same day, different shoes, within 10 seconds of each other over 5 miles. I'm not saying shoes do nothing, but whatever they do was smaller than the noise between three people."
+>
+> *Staff said / I said:* analysis | reaction
+>
+> *My call, and why:* The post is about the author and their experience, their claim about the shoes did not appear load bearing to me for me to classify the post as analysis, and so reaction was more fitting for me
+>
+> *Which pile:* (c) the rule is ambiguous here and my reading is defensible 
+
+
+**5.**
+> *The post:* "Times are down about 3% since the shoe rules changed, so obviously the shoes are the whole story and the sport has a problem."
+
+>
+> *Staff said / I said:* hot_take | analysis
+>
+> *My call, and why:* Claim is that times are down due to shoes because they started slowing down at the time shoe rules were changed so that would be the reason for the change in times. The number is the argument in thi scenario according to the decision rules.
+>
+> *Which pile:* (c) the rule is ambiguous here and my reading is defensible 
+
+**What the pattern in my disagreements tells me:** My disagreements were either a consistency issue with loose application of the rules, or they were a debatable scenario that was either debatable according to the decision rules or the rule was too ambiguous to solidify one choice.
 
 
 

@@ -92,10 +92,11 @@ whether you hit them:
 <!-- Your criterion. -->
 
 
-
 **Why this target:** Some posts could fit more than one label, especially match_reaction and fan_banter. A 65% agreement rate would show that the classifier usually makes similar decisions to another human.
 
-
+> **Revised in Unit 6:** On a shared sample of at least 30 posts independently labeled by another person, the classifier should agree with them at least 65% of the time
+>
+> **Why revised:**  The sample `staff_labels` have 30 posts instead of 40, so using 30 was more relaistic to get an actual verdict than simply 'missing' because of a broken criterion.
 
 ---
 
@@ -104,9 +105,11 @@ whether you hit them:
 <!-- Your criterion. -->
 
 
-
 **Why this target:** High-confidence predictions should be dependable enough to use with minimal manual review. This is particularly important for posts that contain both emotional language and football analysis, where the model should avoid presenting an uncertain classification as reliable.
 
+> **Revised in Unit 6:** The most-confident third of predictions will be correct at least 85% of the time for each seed.
+>
+> **Why revised:** section 6 did not report accuracy for predictions with confidence >= 0.80. It reports accuracy for the most-confident third instead which meant the original criterion cannot be evaluated from the available results. The revised criterion allows me to obtain a verdict
 
 
 ---
