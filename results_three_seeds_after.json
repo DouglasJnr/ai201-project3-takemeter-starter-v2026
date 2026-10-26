@@ -1,0 +1,209 @@
+[
+  {
+    "seed": 42,
+    "n_test": 23,
+    "accuracy": 0.34782608695652173,
+    "f1_macro": 0.12903225806451613,
+    "per_label": {
+      "match_reaction": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "tactical_analysis": {
+        "precision": 0.34782608695652173,
+        "recall": 1.0,
+        "f1": 0.5161290322580645,
+        "support": 8
+      },
+      "player_performance": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 6
+      },
+      "fan_banter": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4
+      }
+    },
+    "confusion": {
+      "match_reaction": {
+        "match_reaction": 0,
+        "tactical_analysis": 5,
+        "player_performance": 0,
+        "fan_banter": 0
+      },
+      "tactical_analysis": {
+        "match_reaction": 0,
+        "tactical_analysis": 8,
+        "player_performance": 0,
+        "fan_banter": 0
+      },
+      "player_performance": {
+        "match_reaction": 0,
+        "tactical_analysis": 6,
+        "player_performance": 0,
+        "fan_banter": 0
+      },
+      "fan_banter": {
+        "match_reaction": 0,
+        "tactical_analysis": 4,
+        "player_performance": 0,
+        "fan_banter": 0
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.3549950122833252,
+      "mean_when_wrong": 0.31210383772850037,
+      "accuracy_most_confident_third": 0.7142857142857143,
+      "accuracy_least_confident_third": 0.0,
+      "n_per_third": 7
+    },
+    "device": "mps",
+    "device_name": "Apple Silicon GPU (MPS)",
+    "torch_version": "2.14.1",
+    "max_length": 128
+  },
+  {
+    "seed": 7,
+    "n_test": 23,
+    "accuracy": 0.34782608695652173,
+    "f1_macro": 0.12903225806451613,
+    "per_label": {
+      "match_reaction": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "tactical_analysis": {
+        "precision": 0.34782608695652173,
+        "recall": 1.0,
+        "f1": 0.5161290322580645,
+        "support": 8
+      },
+      "player_performance": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 6
+      },
+      "fan_banter": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4
+      }
+    },
+    "confusion": {
+      "match_reaction": {
+        "match_reaction": 0,
+        "tactical_analysis": 5,
+        "player_performance": 0,
+        "fan_banter": 0
+      },
+      "tactical_analysis": {
+        "match_reaction": 0,
+        "tactical_analysis": 8,
+        "player_performance": 0,
+        "fan_banter": 0
+      },
+      "player_performance": {
+        "match_reaction": 0,
+        "tactical_analysis": 6,
+        "player_performance": 0,
+        "fan_banter": 0
+      },
+      "fan_banter": {
+        "match_reaction": 0,
+        "tactical_analysis": 4,
+        "player_performance": 0,
+        "fan_banter": 0
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.3849424123764038,
+      "mean_when_wrong": 0.33287563920021057,
+      "accuracy_most_confident_third": 0.8571428571428571,
+      "accuracy_least_confident_third": 0.0,
+      "n_per_third": 7
+    },
+    "device": "mps",
+    "device_name": "Apple Silicon GPU (MPS)",
+    "torch_version": "2.14.1",
+    "max_length": 128
+  },
+  {
+    "seed": 2024,
+    "n_test": 23,
+    "accuracy": 0.34782608695652173,
+    "f1_macro": 0.12903225806451613,
+    "per_label": {
+      "match_reaction": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "tactical_analysis": {
+        "precision": 0.34782608695652173,
+        "recall": 1.0,
+        "f1": 0.5161290322580645,
+        "support": 8
+      },
+      "player_performance": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 6
+      },
+      "fan_banter": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4
+      }
+    },
+    "confusion": {
+      "match_reaction": {
+        "match_reaction": 0,
+        "tactical_analysis": 5,
+        "player_performance": 0,
+        "fan_banter": 0
+      },
+      "tactical_analysis": {
+        "match_reaction": 0,
+        "tactical_analysis": 8,
+        "player_performance": 0,
+        "fan_banter": 0
+      },
+      "player_performance": {
+        "match_reaction": 0,
+        "tactical_analysis": 6,
+        "player_performance": 0,
+        "fan_banter": 0
+      },
+      "fan_banter": {
+        "match_reaction": 0,
+        "tactical_analysis": 4,
+        "player_performance": 0,
+        "fan_banter": 0
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.3445225954055786,
+      "mean_when_wrong": 0.3170880377292633,
+      "accuracy_most_confident_third": 0.7142857142857143,
+      "accuracy_least_confident_third": 0.0,
+      "n_per_third": 7
+    },
+    "device": "mps",
+    "device_name": "Apple Silicon GPU (MPS)",
+    "torch_version": "2.14.1",
+    "max_length": 128
+  }
+]

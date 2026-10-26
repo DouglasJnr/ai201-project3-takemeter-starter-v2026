@@ -1,26 +1,26 @@
 {
   "seed": 42,
   "n_test": 23,
-  "accuracy": 0.391304347826087,
-  "f1_macro": 0.20476190476190476,
+  "accuracy": 0.34782608695652173,
+  "f1_macro": 0.12903225806451613,
   "per_label": {
     "match_reaction": {
-      "precision": 1.0,
-      "recall": 0.16666666666666666,
-      "f1": 0.2857142857142857,
-      "support": 6
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 5
     },
     "tactical_analysis": {
-      "precision": 0.36363636363636365,
+      "precision": 0.34782608695652173,
       "recall": 1.0,
-      "f1": 0.5333333333333333,
+      "f1": 0.5161290322580645,
       "support": 8
     },
     "player_performance": {
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "support": 5
+      "support": 6
     },
     "fan_banter": {
       "precision": 0.0,
@@ -31,7 +31,7 @@
   },
   "confusion": {
     "match_reaction": {
-      "match_reaction": 1,
+      "match_reaction": 0,
       "tactical_analysis": 5,
       "player_performance": 0,
       "fan_banter": 0
@@ -44,7 +44,7 @@
     },
     "player_performance": {
       "match_reaction": 0,
-      "tactical_analysis": 5,
+      "tactical_analysis": 6,
       "player_performance": 0,
       "fan_banter": 0
     },
@@ -56,10 +56,10 @@
     }
   },
   "confidence": {
-    "mean_when_right": 0.33147913217544556,
-    "mean_when_wrong": 0.3084198832511902,
+    "mean_when_right": 0.3549950122833252,
+    "mean_when_wrong": 0.31210383772850037,
     "accuracy_most_confident_third": 0.7142857142857143,
-    "accuracy_least_confident_third": 0.14285714285714285,
+    "accuracy_least_confident_third": 0.0,
     "n_per_third": 7
   },
   "device": "mps",

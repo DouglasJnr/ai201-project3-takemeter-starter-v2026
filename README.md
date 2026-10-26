@@ -103,6 +103,53 @@
 
 **The decision rule I used every time:** Ask who the post is aimed at. If it’s addressed to or mocking another fanbase or club, label it fan_banter. If it’s expressing your own feelings about what happened, label it match_reaction. This example is aimed at rival fans, so it’s fan_banter.
 
+### Additional decision rules for difficult boundaries
+
+**`tactical_analysis` vs `match_reaction`:** Ask whether the main purpose is
+to explain why something happened or to express an immediate response to it.
+If the post uses formations, pressing, possession, defensive shape, or
+cause-and-effect reasoning to explain a team's performance, choose
+`tactical_analysis`, even when it begins with an emotional reaction or refers
+to a match that is still in progress. If it mainly reports a score, result, or
+feeling without explaining the cause, choose `match_reaction`. For example,
+the Sevilla post is `tactical_analysis` because its main evidence is the
+mid-block and pressing explanation, not the opening complaint that Sevilla
+threw the game away.
+
+**`player_performance` vs `tactical_analysis`:** Ask whether the player is
+being evaluated as the main subject or used to explain a wider team structure.
+Choose `player_performance` when the post focuses on an individual player's
+form, output, statistics, rating, or direct contribution, such as the Caicedo
+example. Choose `tactical_analysis` when the post explains positioning,
+movement, pressing, spacing, or the team's system, even if it names one or
+more players. A player being mentioned in a tactical explanation does not
+make the post `player_performance`.
+
+**`player_performance` vs `match_reaction`:** Choose `player_performance` when
+the lasting evaluation of the player's ability or contribution is the main
+point. Choose `match_reaction` when the player is only part of an immediate
+response to a particular match event, goal, or result. A statistic or
+performance judgment supports `player_performance`; an emotional response to
+what just happened supports `match_reaction`.
+
+**`fan_banter` vs `player_performance`:** Choose `fan_banter` when the main
+purpose is to mock, tease, or provoke a rival club, player, or fanbase.
+Choose `player_performance` when the post seriously evaluates what a player
+did, even if it uses excitement, exaggeration, or praise. The intended target
+of the post takes priority over the presence of a player's name.
+
+**`fan_banter` vs `tactical_analysis`:** Choose `tactical_analysis` when the
+post's claim depends on football evidence or an explanation of how the team
+played. Choose `fan_banter` when the football reference is mainly a vehicle
+for ridicule, rivalry, or a meme and no real tactical explanation is offered.
+
+**Priority rule when several labels seem possible:** classify by the post's
+main purpose, not by its loudest phrase. Use this order of questions:
+`fan_banter` if the purpose is mockery; otherwise `tactical_analysis` if the
+post explains how or why; otherwise `player_performance` if one player's
+output is being evaluated; otherwise use `match_reaction` for an immediate
+response.
+
 <!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
      if the tone is heated." -->
 
@@ -295,7 +342,7 @@ of next unit's variance. -->
 | 2 | Every label F1 | ≥0.60 | MISSED | `player_performance` and `fan_banter` had F1 = 0.000 for every seed; `match_reaction` reached only 0.286 once and `tactical_analysis` reached 0.533 at best. |
 | 3 | Largest label is no more than 2.5 times the smallest | Largest/smallest ≤2.5:1 | MET | The largest class had 53 posts and the smallest had 24, giving 53/24 = 2.21:1. |
 | 4 | Agreement on a shared sample of 30 posts | ≥ 0.65 | MET | Agreement was 25/30 = 83.3% |
-| 5 | The most-confident third of predictions is reliable | ≥85% accuracy for the most-confident third for each seed | MISSED | The most-confident third was correct 71.4% for seed 42, 100.0% for seed 7, and 71.4% for seed 2024; the target was not met for every seed. |
+| 5 | The most-confident third of predictions | ≥85% | MISSED | The most-confident third was correct 71.4% for seed 42, 100.0% for seed 7, and 71.4% for seed 2024; the target was not met for every seed. |
 
 **Diagnoses**
 
@@ -411,22 +458,23 @@ Section 6 reports accuracy for the most-confident third as 71.4% for seed 42, 10
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** I added new boundary rules for my labels and relabeled the posts in my `labels.csv` file according to the new rules.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** Diagnosis 2 pointed at this as the model classifications were collapsing onto the tactical analysis label.
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥0.70 | 0.348 | 0.348 | 0.348 | MISSED |
+| 2. Every label F1  | ≥0.60| match 0.000; tactical 0.516; player 0.000; banter 0.000 | match 0.000; tactical 0.516; player 0.000; banter 0.000 | match 0.000; tactical 0.516; player 0.000; banter 0.000 | MISSED |
+| 3. largest label to smallest label ratio| ≤2.5:1 | 2.29:1 (55/24) | 2.29:1 (55/24) | 2.29:1 (55/24) | MET |
+| 4. shared sample agreement | ≥65% | 83.3% (25/30) | 83.3% (25/30) | 83.3% (25/30) | MET |
+| 5. The most-confident third of predictions | ≥85% | 0.714 | 0.857 | 0.714 | MISSED |
 
 **Did it help, and how do I know:**
 
+My improvement didn't help, it made the model slightly worse, and no criterion changed its verdict. The diagnosis I sought to improve did not improve. The model continues to collapse onto the `tactical_analysis` label for everything. The overall accuracy is therefore a reflection of the share of tactical posts. The relabel made the imbalance slightly worse.
 <!-- If it didn't, say so. Relabelling that didn't help is a genuinely
      interesting result and earns full credit. -->
 
@@ -437,7 +485,7 @@ Section 6 reports accuracy for the most-confident third as 71.4% for seed 42, 10
 ## What's Still Broken
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
-
+Criterion 1, 2, 
 
 
 **The gap between what I meant my labels to capture and what the model
